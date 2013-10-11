@@ -63,3 +63,7 @@ test-app:
 
 test-pep8:
 	$(BIN_DIR)/flake8 $(PACKAGE)
+
+
+release:
+	$(BIN_DIR)/fullrelease
