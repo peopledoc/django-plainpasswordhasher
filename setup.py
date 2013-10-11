@@ -17,7 +17,7 @@ ENTRY_POINTS = {}
 AUTHOR = u'Boris Feld'
 EMAIL = u'lothiraldan@gmail.com'
 URL = u'https://github.com/novapost/django-plainpasswordhasher'
-CLASSIFIERS = ['Development Status :: 3 - Alpha',
+CLASSIFIERS = ['Development Status :: 4 - Beta',
                "Programming Language :: Python :: 2.7"]
 KEYWORDS = []
 
