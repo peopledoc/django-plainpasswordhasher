@@ -53,6 +53,7 @@ Resources
 
 * Code repository: https://github.com/novapost/django-plainpasswordhasher
 * Bugtracker: https://github.com/novapost/django-plainpasswordhasher/issues
+* Continuous integration: https://travis-ci.org/novapost/django-plainpasswordhasher
 
 
 **********
