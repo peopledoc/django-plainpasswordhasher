@@ -18,7 +18,7 @@ Here is an example using pip:
 
 .. code:: sh
 
-   pip install -e git+ssh://git@github.com/novapost/django-plainpasswordhasher.git#egg=django-plainpasswordhasher
+   pip install django-plainpasswordhasher
 
 Then configure your test settings:
 
@@ -27,12 +27,13 @@ Then configure your test settings:
    PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher', )
 
 
-*********************
-Test password hashing
-*********************
+**************************************
+Except explicit password hashing tests
+**************************************
 
-In most cases, the setup above will do the job. But you may write some tests
-that require real password hashing. In such a case, let's override settings!
+In most cases, using a dummy password hasher will do the job.
+But you may write some tests that require real password hashing. In such a
+case, let's override settings!
 
 .. code:: python
 
@@ -51,6 +52,7 @@ that require real password hashing. In such a case, let's override settings!
 Resources
 *********
 
+* PyPI page: https://pypi.python.org/pypi/django-plainpasswordhasher
 * Code repository: https://github.com/novapost/django-plainpasswordhasher
 * Bugtracker: https://github.com/novapost/django-plainpasswordhasher/issues
 * Continuous integration: https://travis-ci.org/novapost/django-plainpasswordhasher
