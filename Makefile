@@ -57,7 +57,7 @@ test: test-app test-pep8
 
 
 test-app:
-	$(NOSE) --config=etc/nose/base.cfg --config=etc/nose/$(PACKAGE).cfg
+	$(NOSE) --config=etc/nose/base.cfg --config=etc/nose/$(PACKAGE).cfg $(PACKAGE) tests
 	mv $(ROOT_DIR)/.coverage $(DATA_DIR)/test/.coverage
 
 
