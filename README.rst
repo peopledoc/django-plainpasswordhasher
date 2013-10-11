@@ -61,7 +61,7 @@ References
 **********
 
 * `Original blog post
-  <http://tech.novapost.fr/django-comment-booster-ses-tests-en-1-minute.html>`
+  <http://tech.novapost.fr/django-comment-booster-ses-tests-en-1-minute.html>`_
 
 * `Django 1.5 documentation about getting faster tests
   <https://docs.djangoproject.com/en/1.5/topics/testing/#speeding-up-the-tests>`_ 
