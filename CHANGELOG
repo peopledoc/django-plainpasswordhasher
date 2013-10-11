@@ -1,0 +1,18 @@
+Changelog
+=========
+
+This document describes changes between each past release. For information
+about future releases, check `milestones`_.
+
+
+0.1 (unreleased)
+----------------
+
+- Imported PlainPasswordHasher implementation by Boris Feld.
+
+
+.. rubric:: Notes & references
+
+.. target-notes::
+
+.. _`milestones`: https://github.com/novapost/django-plainpasswordhasher/issues/milestones
