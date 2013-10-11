@@ -18,7 +18,10 @@ AUTHOR = u'Boris Feld'
 EMAIL = u'lothiraldan@gmail.com'
 URL = u'https://github.com/novapost/django-plainpasswordhasher'
 CLASSIFIERS = ['Development Status :: 4 - Beta',
-               "Programming Language :: Python :: 2.7"]
+               'Programming Language :: Python :: 2.7',
+               'Framework :: Django',
+               'Topic :: Security :: Cryptography',
+               'Topic :: Software Development :: Testing']
 KEYWORDS = []
 
 
