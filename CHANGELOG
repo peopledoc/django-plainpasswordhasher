@@ -5,7 +5,7 @@ This document describes changes between each past release. For information
 about future releases, check `milestones`_.
 
 
-0.1 (unreleased)
+0.1 (2013-10-11)
 ----------------
 
 - Imported PlainPasswordHasher implementation by Boris Feld.
