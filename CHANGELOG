@@ -5,7 +5,7 @@ This document describes changes between each past release. For information
 about future releases, check `milestones`_.
 
 
-0.3 (unreleased)
+0.3 (2013-10-14)
 ----------------
 
 - Fixed "'package' must be a string" error when installing project.
