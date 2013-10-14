@@ -8,13 +8,13 @@ about future releases, check `milestones`_.
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fixed "'package' must be a string" error when installing project.
 
 
 0.2 (2013-10-11)
 ----------------
 
-- Nothing changed yet.
+- Fixed upload on PyPI.
 
 
 0.1 (2013-10-11)

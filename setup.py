@@ -6,11 +6,11 @@ from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-NAME = u'django-plainpasswordhasher'
+NAME = 'django-plainpasswordhasher'
 DESCRIPTION = u'Dummy (plain text) password hashing for Django.'
 README = open(os.path.join(here, 'README.rst')).read()
 VERSION = open(os.path.join(here, 'VERSION')).read().strip()
-PACKAGES = [NAME.replace(u'-', u'_')]
+PACKAGES = [NAME.replace('-', '_')]
 REQUIREMENTS = ['Django',
                 'setuptools']
 ENTRY_POINTS = {}
