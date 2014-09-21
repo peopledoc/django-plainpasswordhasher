@@ -7,7 +7,7 @@ from setuptools import setup
 here = os.path.abspath(os.path.dirname(__file__))
 
 NAME = 'django-plainpasswordhasher'
-DESCRIPTION = u'Dummy (plain text) password hashing for Django.'
+DESCRIPTION = 'Dummy (plain text) password hashing for Django.'
 README = open(os.path.join(here, 'README.rst')).read()
 VERSION = open(os.path.join(here, 'VERSION')).read().strip()
 PACKAGES = [NAME.replace('-', '_')]
