@@ -14,10 +14,10 @@ PACKAGES = [NAME.replace('-', '_')]
 REQUIREMENTS = ['Django',
                 'setuptools']
 ENTRY_POINTS = {}
-LICENSE = u'BSD'
-AUTHOR = u'Boris Feld'
-EMAIL = u'lothiraldan@gmail.com'
-URL = u'https://github.com/novapost/django-plainpasswordhasher'
+LICENSE = 'BSD'
+AUTHOR = 'Boris Feld'
+EMAIL = 'lothiraldan@gmail.com'
+URL = 'https://github.com/novapost/django-plainpasswordhasher'
 CLASSIFIERS = ['Development Status :: 4 - Beta',
                'License :: OSI Approved :: BSD License',
                'Programming Language :: Python :: 2',
