@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Password hashers."""
-from collections import OrderedDict
+try:
+    from collections import OrderedDict
+except ImportError:
+    from django.utils.datastructures import SortedDict as OrderedDict
 
 from django.contrib.auth.hashers import BasePasswordHasher, mask_hash
 
