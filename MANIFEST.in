@@ -1,3 +1,9 @@
 recursive-include django_plainpasswordhasher *
 global-exclude *.pyc
-include VERSION README.rst CHANGELOG LICENSE INSTALL AUTHORS
+include AUTHORS
+include CHANGELOG
+include CONTRIBUTING.rst
+include INSTALL
+include LICENSE
+include README.rst
+include VERSION

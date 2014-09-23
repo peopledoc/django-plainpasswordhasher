@@ -8,7 +8,10 @@ about future releases, check `milestones`_.
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+Enhance development environment.
+
+- Feature #3 - Development environment now uses Tox (was using zc.buildout).
+  Tox runs the tests. TravisCI.org runs Tox.
 
 
 0.3 (2013-10-14)
