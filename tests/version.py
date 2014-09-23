@@ -20,7 +20,7 @@ class VersionTestCase(unittest.TestCase):
 
     def get_version(self, package):
         """Return project's version defined in package."""
-        module = __import__(package, globals(), locals(), [], -1)
+        module = __import__(package, globals(), locals(), [], 0)
         return module.__version__
 
     def test_version_present(self):

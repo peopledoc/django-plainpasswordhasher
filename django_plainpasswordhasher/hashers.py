@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 """Password hashers."""
-from collections import OrderedDict
+from __future__ import print_function
+
+try:
+    from collections import OrderedDict
+except ImportError:
+    from django.utils.datastructures import SortedDict as OrderedDict
 
 from django.contrib.auth.hashers import BasePasswordHasher, mask_hash
 
@@ -23,8 +28,8 @@ class PlainPasswordHasher(BasePasswordHasher):
         """Return ``password`` encoded with noop algorithm; whatever ``salt``.
 
         >>> hasher = PlainPasswordHasher()
-        >>> hasher.encode('secret', 'fake salt')
-        u'plain$$secret'
+        >>> print(hasher.encode('secret', 'fake salt'))
+        plain$$secret
 
         """
         return u'%s$$%s' % (self.algorithm, password)
@@ -60,8 +65,10 @@ class PlainPasswordHasher(BasePasswordHasher):
         representation of the password.
 
         >>> hasher = PlainPasswordHasher()
-        >>> hasher.safe_summary(hasher.encode('secret', 'salt'))
-        OrderedDict([('algorithm', 'plain'), ('hash', u'sec***')])
+        >>> summary = hasher.safe_summary(hasher.encode('secret', 'salt'))
+        >>> summary == OrderedDict([('algorithm', 'plain'),
+        ...                         ('hash', 'sec***')])
+        True
 
         """
         algorithm, salt, hash = encoded.split('$', 2)

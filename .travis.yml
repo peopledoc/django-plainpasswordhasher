@@ -1,10 +1,18 @@
 language: python
 env:
   matrix:
+  - TOXENV=py26
   - TOXENV=py27
+  - TOXENV=py32
+  - TOXENV=py33
+  - TOXENV=py34
+  - TOXENV=pypy
+  - TOXENV=pypy3
   - TOXENV=flake8
   - TOXENV=readme
 install:
 - make develop
 script:
 - make test
+install: make develop
+script: make test
