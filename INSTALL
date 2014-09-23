@@ -1,17 +1,61 @@
-############
-Installation
-############
+#######
+Install
+#######
 
-*********************
-For use in your tests
-*********************
+`django-plainpasswordhasher` is open-source software, published under BSD license.
+See :doc:`/about/license` for details.
 
-Install ``django-plainpasswordhasher`` with your favorite installer.
-Here is an example using pip:
+If you want to install a development environment, you should go to
+:doc:`/contributing` documentation.
+
+
+*************
+Prerequisites
+*************
+
+* `Python`_ 2.7. Other versions may work, but they are not part of
+  the test suite at the moment.
+
+
+************
+As a library
+************
+
+In most cases, you will use `django-plainpasswordhasher` as a dependency of another project.
+In such a case, you should add ``django-plainpasswordhasher`` in your main project's
+requirements. Typically in :file:`setup.py`:
+
+.. code:: python
+
+   from setuptools import setup
+
+   setup(
+       install_requires=[
+           'django-plainpasswordhasher',
+           #...
+       ]
+       # ...
+   )
+
+Then when you install your main project with your favorite package manager
+(like `pip`_), `django-plainpasswordhasher` will automatically be installed.
+
+
+**********
+Standalone
+**********
+
+You can install `django-plainpasswordhasher` with your favorite Python package manager.
+As an example with `pip`_:
 
 .. code:: sh
 
-   pip install -e git+ssh://git@github.com/novapost/django-plainpasswordhasher.git#egg=django-plainpasswordhasher
+   pip install django-plainpasswordhasher
+
+
+*********
+Configure
+*********
 
 Then configure your test settings:
 
@@ -20,16 +64,21 @@ Then configure your test settings:
    PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher', )
 
 
-*******************************
-Setup a development environment
-*******************************
+*****
+Check
+*****
 
-If you want to contribute to ``django-plainpasswordhasher``:
+Check `django-plainpasswordhasher` has been installed:
 
 .. code:: sh
 
-   git clone git@github.com:novapost/django-plainpasswordhasher.git  # Or your fork!
-   cd django-plainpasswordhasher
-   make develop
+   python -c "import django_plainpasswordhasher;print(django_plainpasswordhasher.__version__)"
 
-See provided ``Makefile`` for common development tasks.
+You should get `django_plainpasswordhasher`'s version.
+
+.. rubric:: References
+
+.. target-notes::
+
+.. _`Python`: https://www.python.org/
+.. _`pip`: https://pypi.python.org/pypi/pip/

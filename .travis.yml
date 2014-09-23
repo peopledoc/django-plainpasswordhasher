@@ -1,5 +1,10 @@
 language: python
-python:
-  - "2.7"
-install: make develop
-script: make test
+env:
+  matrix:
+  - TOXENV=py27
+  - TOXENV=flake8
+  - TOXENV=readme
+install:
+- make develop
+script:
+- make test

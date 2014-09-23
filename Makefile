@@ -1,69 +1,63 @@
-# Makefile for django-plainpasswordhasher's development.
-# See INSTALL for details.
-
-# Configuration.
-SHELL = /bin/bash
-ROOT_DIR = $(shell pwd)
-BIN_DIR = $(ROOT_DIR)/bin
-DATA_DIR = $(ROOT_DIR)/var
-WGET = wget
-BUILDOUT_CFG = $(ROOT_DIR)/etc/buildout.cfg
-BUILDOUT_DIR = $(ROOT_DIR)/lib/buildout
-BUILDOUT_VERSION = 2.2.1
-BUILDOUT_BOOTSTRAP_URL = https://raw.github.com/buildout/buildout/$(BUILDOUT_VERSION)/bootstrap/bootstrap.py
-BUILDOUT_BOOTSTRAP = $(BUILDOUT_DIR)/bootstrap.py
-BUILDOUT_BOOTSTRAP_ARGS = -c $(ROOT_DIR)/etc/buildout.cfg --version=$(BUILDOUT_VERSION) buildout:directory=$(ROOT_DIR)
-BUILDOUT = $(BIN_DIR)/buildout
-BUILDOUT_ARGS = -N buildout:directory=$(ROOT_DIR)
-VIRTUALENV_DIR = $(ROOT_DIR)/lib/virtualenv
-PIP = $(VIRTUALENV_DIR)/bin/pip
-NOSE = $(BIN_DIR)/nosetests
-PYTHON = $(VIRTUALENV_DIR)/bin/python
-PROJECT = $(shell $(PYTHON) -c "import setup; print setup.NAME")
-PACKAGE = $(shell $(PYTHON) -c "import setup; print setup.PACKAGES[0]")
-DJANGO = $(BIN_DIR)/demo
+# Reference card for usual actions in development environment.
+#
+# For standard installation of django-plainpasswordhasher, see INSTALL.
+# For details about django-plainpasswordhasher's development environment, see CONTRIBUTING.rst.
+#
+PIP = pip
+TOX = tox
+PROJECT = $(shell python -c "import setup; print setup.NAME")
 
 
-develop: buildout
+.PHONY: help develop clean distclean maintainer-clean test documentation readme release
 
 
-py27:
-	if [ ! -d $(VIRTUALENV_DIR)/bin/ ]; then virtualenv --no-site-packages $(VIRTUALENV_DIR); fi
-	$(PIP) install -r $(ROOT_DIR)/etc/virtualenv.cfg
+#: help - Display callable targets.
+help:
+	@echo "Reference card for usual actions in development environment."
+	@echo "Here are available targets:"
+	@egrep -o "^#: (.+)" [Mm]akefile  | sed 's/#: /* /'
 
 
-buildout: py27
-	if [ ! -d $(BUILDOUT_DIR) ]; then mkdir -p $(BUILDOUT_DIR); fi
-	if [ ! -f $(BUILDOUT_BOOTSTRAP) ]; then wget -O $(BUILDOUT_BOOTSTRAP) $(BUILDOUT_BOOTSTRAP_URL); fi
-	if [ ! -x $(BUILDOUT) ]; then $(PYTHON) $(BUILDOUT_BOOTSTRAP) $(BUILDOUT_BOOTSTRAP_ARGS); fi
-	$(BUILDOUT) -c $(ROOT_DIR)/etc/buildout.cfg $(BUILDOUT_ARGS)
+#: develop - Install minimal development utilities.
+develop:
+	$(PIP) install tox
+	$(PIP) install -e .
+	$(PIP) install -e demo/
 
 
+#: clean - Basic cleanup, mostly temporary files.
 clean:
-	find $(ROOT_DIR)/ -name "*.pyc" -delete
+	find . -name '*.pyc' -delete
+	find . -name '*.pyo' -delete
 
 
+#: distclean - Remove local builds, such as *.egg-info.
 distclean: clean
-	rm -rf $(ROOT_DIR)/*.egg-info
-	rm -rf $(ROOT_DIR)/demo/*.egg-info
+	rm -rf *.egg
+	rm -rf *.egg-info
 
 
+#: maintainer-clean - Remove almost everything that can be re-generated.
 maintainer-clean: distclean
-	rm -rf $(BIN_DIR)
-	rm -rf $(ROOT_DIR)/lib/
+	rm -rf build/
+	rm -rf dist/
+	rm -rf .tox/
 
 
-test: test-app test-pep8
+#: test - Run test suites.
+test:
+	$(TOX)
 
 
-test-app:
-	$(NOSE) --config=etc/nose/base.cfg --config=etc/nose/$(PACKAGE).cfg $(PACKAGE) tests
-	mv $(ROOT_DIR)/.coverage $(DATA_DIR)/test/.coverage
+#: documentation - Build documentation (Sphinx, README, ...)
+documentation: readme
 
 
-test-pep8:
-	$(BIN_DIR)/flake8 $(PACKAGE)
+#: readme - Build standalone documentation files (README, CONTRIBUTING...).
+readme:
+	$(TOX) -e readme
 
 
+#: release - Tag and push to PyPI.
 release:
-	$(BIN_DIR)/fullrelease
+	$(TOX) -e release
