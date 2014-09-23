@@ -13,12 +13,20 @@ NAME = 'django-plainpasswordhasher-demo'
 DESCRIPTION = ''
 README = open(os.path.join(here, 'README.rst')).read()
 VERSION = open(os.path.join(project_root, 'VERSION')).read().strip()
-AUTHOR = u'Benoît Bryon'
-EMAIL = u'benoit@marmelune.net'
+AUTHOR = 'Boris Feld'
+EMAIL = 'lothiraldan@gmail.com'
 URL = ''
 CLASSIFIERS = ['Development Status :: 4 - Beta',
                'License :: OSI Approved :: BSD License',
+               'Programming Language :: Python :: 2',
+               'Programming Language :: Python :: 3',
+               'Programming Language :: Python :: 2.6',
                'Programming Language :: Python :: 2.7',
+               'Programming Language :: Python :: 3.2',
+               'Programming Language :: Python :: 3.3',
+               'Programming Language :: Python :: 3.4',
+               'Programming Language :: Python :: Implementation :: CPython',
+               'Programming Language :: Python :: Implementation :: PyPy',
                'Framework :: Django']
 KEYWORDS = []
 PACKAGES = ['django_plainpasswordhasher_demo']
